@@ -1,0 +1,9 @@
+start: start
+accept: accept
+reject: reject
+blank: _
+start 0 -> odd _ >
+odd 0 -> even _ >
+odd _ -> reject _ >
+even 0 -> odd _ >
+even _ -> accept _ ^

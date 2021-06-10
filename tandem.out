@@ -1,0 +1,56 @@
+start: one
+accept: accept
+reject: reject
+blank: _
+
+one 0 -> two * >
+one 1 -> two # >
+one * -> five 0 >
+one # -> five 1 >
+one _ -> two _ <
+
+two 0 -> two 0 >
+two 1 -> two 1 >
+two * -> three * <
+two # -> three # <
+two _ -> three _ <
+
+three 0 -> four * <
+three 1 -> four # <
+three # -> reject _ >
+three * -> reject _ >
+
+four 0 -> four 0 <
+four 1 -> four 1 <
+four * -> one * >
+four # -> one # >
+
+five * -> five 0 >
+five # -> five 1 >
+five _ -> six _ <
+
+six 0 -> seven _ <
+six 1 -> eight _ <
+six @ -> six @ <
+six _ -> accept _ >
+
+seven 0 -> seven 0 <
+seven 1 -> seven 1 <
+seven * -> nine @ >
+seven # -> reject 0 >
+seven @ -> seven @ <
+
+eight 0 -> eight 0 <
+eight 1 -> eight 1 <
+eight * -> reject 0 >
+eight # -> nine @ >
+eight @ -> eight @ <
+eight _ -> eight _ <
+
+nine 0 -> nine 0 >
+nine 1 -> nine 1 >
+nine @ -> nine @ >
+nine _ -> six _ <
+
+
+

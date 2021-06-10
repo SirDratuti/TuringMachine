@@ -1,0 +1,32 @@
+start: one
+accept: accept
+reject: reject
+blank: _
+
+one 0 -> one 0 >
+one 1 -> one 1 >
+one * -> two * <
+one # -> two # <
+one _ -> two _ <
+
+two 0 -> four # >
+two 1 -> three * >
+two * -> two * <
+two # -> two # <
+two _ -> five _ >
+
+three * -> three * >
+three # -> three # >
+three _ -> two * <
+
+four * -> four * >
+four # -> four # >
+four _ -> two # <
+
+five * -> five 1 >
+five # -> five 0 >
+five _ -> six _ <
+
+six 0 -> six 0 <
+six 1 -> six 1 <
+six _ -> accept _ >

@@ -1,0 +1,22 @@
+start: one
+accept: accept
+reject: reject
+blank: _
+
+one ( -> two ( >
+one ) -> reject ) >
+one @ -> one @ >
+one _ -> accept ) >
+
+two ( -> two ( >
+two ) -> three @ <
+two @ -> two @ >
+
+three ( -> three ( <
+three ) -> three ) <
+three @ -> three @ <
+three _ -> four _ >
+
+four ( -> one @ >
+four ) -> four ) >
+four @ -> four @ >
