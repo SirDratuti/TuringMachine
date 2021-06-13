@@ -1,0 +1,160 @@
+start: one
+accept: accept
+reject: reject
+blank: _
+
+one 0 -> three @ >
+one 1 -> two ! >
+one * -> seven * <
+one ! -> one ! >
+one @ -> one @ >
+
+two 0 -> two 0 >
+two 1 -> two 1 >
+two * -> two * >
+two ! -> two ! >
+two # -> four # >
+two _ -> four # >
+
+three 0 -> three 0 >
+three 1 -> three 1 >
+three * -> three * >
+three ! -> three ! >
+three # -> five # >
+three _ -> five # >
+
+four 0 -> four 0 >
+four 1 -> four 1 >
+four _ -> six 1 <
+
+five 0 -> five 0 >
+five 1 -> five 1 >
+five _ -> six 0 <
+
+six 0 -> six 0 <
+six 1 -> six 1 <
+six * -> six * <
+six ! -> six ! <
+six # -> six # <
+six @ -> six @ <
+six _ -> one _ >
+
+seven ! -> twosix 0 <
+seven @ -> twosix 0 <
+seven _ -> eight _ >
+
+eight 0 -> eight 0 >
+eight 1 -> eight 1 >
+eight * -> eight * >
+eight # -> nine # <
+
+nine 0 -> ten # >
+nine 1 -> eleven 0 >
+nine * -> twothree * >
+
+ten 0 -> ten 0 >
+ten 1 -> ten 1 >
+ten # -> ten # >
+ten _ -> twelve 0 ^
+
+eleven 0 -> eleven 0 >
+eleven 1 -> eleven 1 >
+eleven # -> eleven # >
+eleven _ -> onethree _ <
+
+twelve 0 -> twelve 0 <
+twelve 1 -> twelve 1 <
+twelve * -> eight * >
+twelve # -> twelve # <
+
+onethree 0 -> onefour @ <
+onethree 1 -> onefive ! <
+onethree ! -> onethree ! <
+onethree # -> twozero # >
+onethree @ -> onethree @ <
+
+onefour 0 -> onefour 0 <
+onefour 1 -> onefour 1 <
+onefour * -> onesix * <
+onefour ! -> onefour ! <
+onefour # -> onefour # <
+onefour @ -> onefour @ <
+
+onefive 0 -> onefive 0 <
+onefive 1 -> onefive 1 <
+onefive * -> oneseven * <
+onefive ! -> onefive ! <
+onefive # -> onefive # <
+onefive @ -> onefive @ <
+
+onesix 0 -> oneeight @ >
+onesix 1 -> oneeight ! >
+onesix ! -> onesix ! <
+onesix @ -> onesix @ <
+onesix _ -> oneeight @ >
+
+oneseven 0 -> oneeight ! >
+oneseven 1 -> twotwo @ <
+oneseven ! -> oneseven ! <
+oneseven @ -> oneseven @ <
+oneseven _ -> oneeight ! >
+
+oneeight 0 -> oneeight 0 >
+oneeight 1 -> oneeight 1 >
+oneeight * -> oneeight * >
+oneeight ! -> oneeight ! >
+oneeight # -> oneeight # >
+oneeight @ -> oneeight @ >
+oneeight _ -> onethree _ <
+
+onenine ! -> onenine ! <
+onenine @ -> onenine @ <
+
+twozero 0 -> twozero 0 >
+twozero 1 -> twozero 1 >
+twozero * -> twozero * >
+twozero ! -> twozero ! >
+twozero # -> twozero # >
+twozero @ -> twozero @ >
+twozero _ -> twoone _ <
+
+twoone 0 -> twoone 0 <
+twoone 1 -> twoone 1 <
+twoone * -> twoone * <
+twoone ! -> twoone 1 <
+twoone # -> twoone # <
+twoone @ -> twoone 0 <
+twoone _ -> eight _ >
+
+twotwo 0 -> oneeight 1 >
+twotwo 1 -> twotwo 0 <
+twotwo _ -> oneeight 1 >
+
+twothree 0 -> twothree 0 >
+twothree 1 -> twothree 1 >
+twothree * -> twothree * >
+twothree ! -> twothree ! >
+twothree # -> twothree # >
+twothree @ -> twothree @ >
+twothree _ -> twofour _ <
+
+twofour 0 -> twofour _ <
+twofour 1 -> twofour _ <
+twofour * -> twofive _ <
+twofour ! -> twofour _ <
+twofour # -> twofour _ <
+twofour @ -> twofour _ <
+
+twofive 0 -> twofive 0 <
+twofive 1 -> twofive 1 <
+twofive _ -> accept _ >
+
+twosix 0 -> twosix _ <
+twosix 1 -> twosix _ <
+twosix ! -> twosix _ <
+twosix @ -> twosix _ <
+twosix _ -> twoseven _ >
+
+twoseven 0 -> eight 0 >
+twoseven 1 -> eight 1 >
+twoseven _ -> twoseven _ >
